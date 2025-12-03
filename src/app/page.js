@@ -36,6 +36,8 @@ const I18N = {
     culture_panel:
       "<h2>一句歌词到一只猫咪再到所有猫咪和所有事物的演变-哈基米文化</h2>\n                        <p>2021-2025的文化路程</p>\n                        <p>起源：从动漫哼唱到文化解构</p>\n                        <p>突破时刻：中国进行哈基米文化解构的阶段</p>\n                        <p>主流突破期（2023年至今）：称霸短视频平台</p>\n                        <p>语义扩展：从“可爱”到“生活方式” 链接Web2市场</p>\n                        <p>文化认可：“哈基米”被列入Z世代社交媒体白皮书十大热门词汇之一。</p>\n                        <p>这就是哈基米收获亿万粉丝和无数创作的历史</p>\n                        <p>免责声明： 哈基米是一个去中心化的迷因代币。没有团队，没有路线图，没有实用价值，没有任何收益预期，这不是财务建议，请自行研究。<br>— 创建此网站的目的只想听你说一声「哈基米」。</p>",
     people_title: "主要社区账号",
+    nav_ecology_culture_mobile: "生态文化",
+    nav_ecology_concerts_mobile: "生态音乐会",
     people_follow: "关注我们吧，哈基米们",
     tag_official: "",
     person1_desc: "一句歌词到一只猫咪再到所有猫咪和所有事物的演变-哈基米文化。",
@@ -79,6 +81,8 @@ const I18N = {
     culture_panel:
       "<h2>From one lyric to one cat to every cat and every story — the evolution of Hajimi culture</h2>\n                        <p>A cultural journey from 2021 to 2025</p>\n                        <p>Origins: from humming anime tunes to deconstructing the culture behind them</p>\n                        <p>Breakthrough: the stage when China collectively reinterpreted the Hajimi phenomenon</p>\n                        <p>Mainstream phase (2023–now): dominating short‑video platforms</p>\n                        <p>Semantic expansion: from “cute” to a “way of life”, bridging into the Web2 market</p>\n                        <p>Cultural recognition: “Hajimi” listed among the top ten buzzwords in Gen‑Z social‑media white papers</p>\n                        <p>This is how Hajimi gained hundreds of millions of fans and countless creative works</p>\n                        <p>Disclaimer: Hajimi is a decentralized meme token with no team, no roadmap, no utility and no expectation of profit. Nothing here is financial advice; please do your own research.<br>— This site exists simply to hear you say “Hajimi”.</p>",
     people_title: "Core Community Accounts",
+    nav_ecology_culture_mobile: "Ecology - Culture",
+    nav_ecology_concerts_mobile: "Ecology - Concerts",
     people_follow: "Follow us, Hajimi fans",
     tag_official: "",
     person1_desc:
@@ -550,13 +554,19 @@ export default function Home() {
               <span data-i18n-key="nav_community">社区</span>
               <ul className="nav-dropdown">
                 <li>
-                  <a href="https://x.com/hajimi_CTO_BNB">Twitter</a>
+                  <a target="_blank" href="https://x.com/hajimi_CTO_BNB">
+                    Twitter
+                  </a>
                 </li>
                 <li>
-                  <a href="https://t.me/BNB_Hajimiiii">TG</a>
+                  <a target="_blank" href="https://t.me/BNB_Hajimiiii">
+                    TG
+                  </a>
                 </li>
                 <li>
-                  <a href="https://www.tiktok.com/@hajimi_bnb">tiktok</a>
+                  <a target="_blank" href="https://www.tiktok.com/@hajimi_bnb">
+                    tiktok
+                  </a>
                 </li>
               </ul>
             </li>
@@ -627,6 +637,7 @@ export default function Home() {
           </div>
           <nav className="nav-drawer-menu">
             <button
+              data-i18n-key="nav_overview"
               className="nav-drawer-item"
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -636,6 +647,7 @@ export default function Home() {
               概览
             </button>
             <button
+              data-i18n-key="nav_history"
               className="nav-drawer-item"
               onClick={() => {
                 const el = document.getElementById("history-section");
@@ -650,6 +662,7 @@ export default function Home() {
               href="https://x.com/hajimi_fund"
               target="_blank"
               rel="noopener noreferrer"
+              data-i18n-key="nav_foundation"
             >
               基金会
             </a>
@@ -658,26 +671,30 @@ export default function Home() {
               href="https://t.me/BNB_Hajimiiii"
               target="_blank"
               rel="noopener noreferrer"
+              data-i18n-key="nav_community"
             >
               社区
             </a>
 
             <a
               className="nav-drawer-item"
-              href="https://t.me/BNB_Hajimiiii"
+              href="https://hajimi-theta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
+              data-i18n-key="nav_ecology_culture_mobile"
             >
-              哈基米生态-文化
+              生态文化
             </a>
 
             <a
               className="nav-drawer-item"
-              href="https://t.me/BNB_Hajimiiii"
-              target="_blank"
-              rel="noopener noreferrer"
+              data-i18n-key="nav_ecology_concerts_mobile"
+              onClick={() => {
+                const pack = I18N[lang] || I18N.zh;
+                setToastMessage(pack.coming_soon);
+              }}
             >
-              哈基米生态-音乐会
+              生态音乐会
             </a>
           </nav>
         </div>
