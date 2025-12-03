@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'ZiyouFanghua';
+    src: url('../assets/字由芳华体.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'fangyuanti';
+    src: url('../assets/alimama/AlimamaFangYuanTiVF-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
