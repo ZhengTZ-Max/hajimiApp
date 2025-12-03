@@ -51,7 +51,8 @@ body {
   );
 }
 span,
-p,div {
+p,
+div {
   font-family: ZiyouFanghua !important;
 }
 
@@ -98,9 +99,8 @@ p,div {
   align-items: center;
   z-index: 1000;
   transition: background 0.3s ease, backdrop-filter 0.3s ease;
-  background: rgba(0,0,0,0.2);
-   box-shadow: 0 0 36px rgba(0, 0, 0, 0.6);
-
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 36px rgba(0, 0, 0, 0.6);
 }
 
 .banner-box.scrolled {
@@ -614,7 +614,7 @@ p,div {
 
 .heyue-mao-item {
   width: 260px;
-  height: 350px;
+  height: 400px;
   max-width: 30%;
   aspect-ratio: 1/1;
   position: relative;
@@ -1088,4 +1088,21 @@ p,div {
     margin-top: 4px;
     margin-bottom: 28px;
   }
+}
+
+.swap-dex {
+  display: flex;
+}
+.swap-dex img {
+  width: 42px;
+  margin: 0 12px;
+}
+
+.hoverBtn {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hoverBtn:hover {
+  transform: scale(1.15);
 }

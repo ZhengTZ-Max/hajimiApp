@@ -451,6 +451,10 @@ export default function Home() {
     return () => document.removeEventListener("click", onClick);
   }, []);
 
+  const goLink = (url) => {
+    window.open(url);
+  };
+
   return (
     <main className="page-scaler">
       <div className="container-box">
@@ -544,7 +548,13 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#foundation-2" data-i18n-key="nav_foundation_events">
+                  <a
+                    onClick={() => {
+                      const pack = I18N[lang] || I18N.zh;
+                      setToastMessage(pack.coming_soon);
+                    }}
+                    data-i18n-key="nav_foundation_events"
+                  >
                     活动
                   </a>
                 </li>
@@ -779,6 +789,54 @@ export default function Home() {
                 >
                   0x82ec31d69b3c289e541b50e30681fd1acad24444
                 </span>
+              </div>
+
+              <div className="swap-dex">
+                <img
+                  className="hoverBtn"
+                  onClick={() =>
+                    goLink(
+                      "https://gmgn.ai/bsc/token/0x82ec31d69b3c289e541b50e30681fd1acad24444"
+                    )
+                  }
+                  src="/assets/logo_small2.svg"
+                  alt="gmgn"
+                />
+                <img
+                  className="hoverBtn"
+                  onClick={() =>
+                    goLink(
+                      "https://pancakeswap.finance/swap?outputCurrency=0x82Ec31D69b3c289E541b50E30681FD1ACAd24444"
+                    )
+                  }
+                  src="/assets/panswap.svg"
+                  alt="panswap"
+                />
+                <img
+                  className="hoverBtn"
+                  onClick={() =>
+                    goLink(
+                      "https://web3.binance.com/zh-CN/token/bsc/0x82ec31d69b3c289e541b50e30681fd1acad24444"
+                    )
+                  }
+                  src="/assets/bnwallet.png"
+                  alt="BN"
+                />
+
+                <img
+                  style={{
+                    width: 80,
+                  }}
+                  className="hoverBtn"
+                  onClick={() =>
+                    goLink(
+                      "https://four.meme/token/0x82ec31d69b3c289e541b50e30681fd1acad24444"
+                    )
+                  }
+                  src="/assets/fourmeme.svg"
+                  alt="fourmeme"
+                />
+                {/* <img src="/assets/bnwallet.png" alt="BN" /> */}
               </div>
             </div>
 
