@@ -734,12 +734,8 @@ export default function Home() {
 
             <div
               className="create-btn"
-              onClick={() => {
-                const pack = I18N[lang] || I18N.zh;
-                setToastMessage(pack.coming_soon);
-              }}
             >
-              <Link href={'#'} className="create-btn-text" data-i18n-key="create_btn">
+              <Link href={'/music'} className="create-btn-text" data-i18n-key="create_btn">
                 创作属于你自己的哈基米音乐
               </Link>
               <div className="create-btn-icon">
