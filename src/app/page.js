@@ -823,7 +823,7 @@ export default function Home() {
                   alt="BN"
                 />
 
-                <img
+                {/* <img
                   style={{
                     width: 80,
                   }}
@@ -835,7 +835,7 @@ export default function Home() {
                   }
                   src="/assets/fourmeme.svg"
                   alt="fourmeme"
-                />
+                /> */}
                 {/* <img src="/assets/bnwallet.png" alt="BN" /> */}
               </div>
             </div>
