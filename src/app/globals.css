@@ -462,6 +462,7 @@ div {
   backdrop-filter: blur(4px);
   transition: border-color 0.2s ease, background-color 0.2s ease,
     box-shadow 0.2s ease, transform 0.2s ease;
+  font-size: 42px;
 }
 
 .create-btn-text:hover {
@@ -608,7 +609,7 @@ div {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 48px;
+  gap: 128px;
   padding: 56px 40px 24px;
 }
 
@@ -689,30 +690,29 @@ div {
 
 .history-box .step p:nth-of-type(1) {
   font-family: "ZiyouFanghua";
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .history-box .step p:nth-of-type(2) {
   font-family: "fangyuanti";
-  font-size: 28px;
+  font-size: 30px;
 }
 
 .history-box .step p:nth-of-type(3) {
   font-family: "fangyuanti";
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 400;
+}
+.history-box p {
+  font-size: 24px;
 }
 
 .people-box {
   width: 100%;
   margin-top: -5px;
   position: relative;
-  z-index: 100;
-  background-image: url(/images/bg-4_03.png);
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  padding: 80px 0 260px;
+  background-color: #db8b58;
+  padding: 80px 0 0;
 }
 
 .b11 {
@@ -729,17 +729,17 @@ div {
   border-radius: 18px;
 }
 .b11 h2 {
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .b11 h4 {
   margin: 0 0 8px;
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .b11 p {
   margin: 2px 0;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.5;
 }
 
@@ -752,6 +752,7 @@ div {
   color: #fff;
   margin: 40px auto 24px;
   justify-content: center;
+  position: relative;
 }
 
 .people-title img {
@@ -952,6 +953,9 @@ div {
     left: auto;
     bottom: auto;
   }
+  .people-floor .zhua {
+    width: 500px !important;
+  }
 }
 
 /* 更小屏幕适配：手机端（约 <= 768px） */
@@ -1054,7 +1058,7 @@ div {
   }
 
   .people-box {
-    padding: 56px 0 160px;
+    padding: 56px 0 0;
     background-position: center top;
   }
 
@@ -1088,6 +1092,10 @@ div {
     margin-top: 4px;
     margin-bottom: 28px;
   }
+
+  .people-floor .zhua {
+    width: 250px !important;
+  }
 }
 
 .swap-dex {
@@ -1105,4 +1113,22 @@ div {
 
 .hoverBtn:hover {
   transform: scale(1.15);
+}
+
+.people-floor {
+  position: relative;
+}
+
+.people-floor .floor {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.people-floor .zhua {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 1;
+  width: 850px;
+  transform: translateX(-50%);
 }

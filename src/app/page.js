@@ -733,12 +733,14 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="create-btn">
-              <Link
-                href="/music"
-                className="create-btn-text"
-                data-i18n-key="create_btn"
-              >
+            <div
+              className="create-btn"
+              onClick={() => {
+                const pack = I18N[lang] || I18N.zh;
+                setToastMessage(pack.coming_soon);
+              }}
+            >
+              <Link href={'#'} className="create-btn-text" data-i18n-key="create_btn">
                 创作属于你自己的哈基米音乐
               </Link>
               <div className="create-btn-icon">
@@ -934,7 +936,7 @@ export default function Home() {
                   一句歌词到一只猫咪再到所有猫咪和所有事物的演变-哈基米文化。
                 </div>
                 <div className="b3">
-                  <a href="https://x.com/hajimi_CTO_BNB">
+                  <a target="_blank" href="https://x.com/hajimi_CTO_BNB">
                     <img src="/images/icon1_2.png" alt="X" />
                   </a>
                 </div>
@@ -951,7 +953,7 @@ export default function Home() {
                   每一次的哈基米文化传播和慈善行动都是对世界最好的回报。
                 </div>
                 <div className="b3">
-                  <a href="https://t.me/BNB_Hajimiiii">
+                  <a target="_blank" href="https://t.me/BNB_Hajimiiii">
                     <img src="/images/icon1_1.png" alt="Telegram" />
                   </a>
                 </div>
@@ -961,14 +963,16 @@ export default function Home() {
             <div className="people-label-item">
               <div className="people-label-item-content">
                 <div className="b1">
-                  <span>@Kaito</span>
+                  <span>@哈基米文化网站</span>
                   <span data-i18n-key="tag_official"></span>
                 </div>
                 <div className="b2" data-i18n-key="person3_desc">
-                  叙事与视觉标准，整合对外沟通与品牌一致性。
+                  哈基米文化网站，包含“视频，音乐，梗图"等文化内容。
                 </div>
                 <div className="b3">
-                  <img src="/images/icon3_1.png" alt="Icon" />
+                  <a target="_blank" href="https://hajimi-theta.vercel.app/">
+                    <img src="/images/icon3_1.png" alt="Telegram" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -999,6 +1003,11 @@ export default function Home() {
             <img src="/images/p_left.png" alt="装饰" />
             <span data-i18n-key="people_follow">关注我们吧，哈基米们</span>
             <img src="/images/p_right.png" alt="装饰" />
+          </div>
+
+          <div className="people-floor">
+            <img className="floor" src="/images/floor.png"></img>
+            <img className="zhua" src="/images/zhua.png"></img>
           </div>
         </div>
 
