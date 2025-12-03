@@ -42,7 +42,7 @@ const I18N = {
     tag_official: "",
     person1_desc: "一句歌词到一只猫咪再到所有猫咪和所有事物的演变-哈基米文化。",
     person2_desc: "每一次的哈基米文化传播和慈善行动都是对世界最好的回报。",
-    person3_desc: "叙事与视觉标准，整合对外沟通与品牌一致性。",
+    person3_desc: "哈基米文化网站，包含“视频，音乐，梗图等文化内容。",
     copy_success: "复制成功",
     copy_fail: "复制失败",
     coming_soon: "正在建立，敬请期待...",
@@ -90,7 +90,7 @@ const I18N = {
     person2_desc:
       "Every spread of Hajimi culture and each charitable act is the best gift to the world.",
     person3_desc:
-      "Narrative and visual standards align all external communication and brand consistency.",
+      "Hakimi Culture website, which includes cultural content such as videos, music, and memes.",
     copy_success: "Copied",
     copy_fail: "Copy failed",
     coming_soon: "In progress, stay tuned...",
@@ -480,8 +480,7 @@ export default function Home() {
             <li
               data-i18n-key="nav_history"
               onClick={() => {
-                const el = document.getElementById("history-section");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
               发展历程
