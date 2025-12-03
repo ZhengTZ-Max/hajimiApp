@@ -8,7 +8,7 @@ const I18N = {
     nav_overview: "概览",
     nav_history: "发展历程",
     nav_ecology: "哈基米生态",
-    nav_ecology_memes: "梗图",
+    nav_ecology_memes: "文化",
     nav_ecology_anime: "动漫",
     nav_ecology_concerts: "音乐会",
     nav_foundation: "基金会",
@@ -43,6 +43,7 @@ const I18N = {
     person3_desc: "叙事与视觉标准，整合对外沟通与品牌一致性。",
     copy_success: "复制成功",
     copy_fail: "复制失败",
+    coming_soon: "正在建立，敬请期待...",
     dex_not_listed: "未收录",
     dex_fetch_fail: "获取失败",
   },
@@ -50,7 +51,7 @@ const I18N = {
     nav_overview: "Overview",
     nav_history: "Roadmap",
     nav_ecology: "Hajimi Ecosystem",
-    nav_ecology_memes: "Memes",
+    nav_ecology_memes: "Cultural",
     nav_ecology_anime: "Anime",
     nav_ecology_concerts: "Concerts",
     nav_foundation: "Foundation",
@@ -88,6 +89,7 @@ const I18N = {
       "Narrative and visual standards align all external communication and brand consistency.",
     copy_success: "Copied",
     copy_fail: "Copy failed",
+    coming_soon: "In progress, stay tuned...",
     dex_not_listed: "Not listed",
     dex_fetch_fail: "Fetch failed",
   },
@@ -97,6 +99,15 @@ export default function Home() {
   const [navOpen, setNavOpen] = useState(false);
   const [lang, setLang] = useState("zh");
   const [langOpen, setLangOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
+  useEffect(() => {
+    if (!toastMessage) return;
+    const timer = setTimeout(() => {
+      setToastMessage("");
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [toastMessage]);
 
   useEffect(() => {
     const bannerBox = document.querySelector < HTMLElement > ".banner-box";
@@ -336,7 +347,12 @@ export default function Home() {
       return j?.pairs || null;
     };
 
-    const fetchCandles = async (chain, pairAddr, interval = "15m", limit = 16) => {
+    const fetchCandles = async (
+      chain,
+      pairAddr,
+      interval = "15m",
+      limit = 16
+    ) => {
       const url = `https://api.dexscreener.com/latest/dex/candles/${interval}/${chain}/${pairAddr}?limit=${limit}`;
       const r = await fetch(url, { cache: "no-store" });
       if (!r.ok) throw new Error(`candles HTTP ${r.status}`);
@@ -434,6 +450,7 @@ export default function Home() {
   return (
     <main className="page-scaler">
       <div className="container-box">
+        {toastMessage && <div className="copy-toast show">{toastMessage}</div>}
         <div className="banner">
           <img className="banner-img" src="/images/banner.png" alt="banner" />
           <img
@@ -452,24 +469,61 @@ export default function Home() {
           />
           <ul className="banner-box-list">
             <li data-i18n-key="nav_overview">概览</li>
-            <li data-i18n-key="nav_history">发展历程</li>
+            <li
+              data-i18n-key="nav_history"
+              onClick={() => {
+                const el = document.getElementById("history-section");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              发展历程
+            </li>
             <li className="nav-dropdown-item">
               <span data-i18n-key="nav_ecology">哈基米生态</span>
               <ul className="nav-dropdown">
                 <li>
-                  <a href="#ecosystem-1" data-i18n-key="nav_ecology_memes">
-                    梗图
+                  <a
+                    href="https://hajimi-theta.vercel.app/"
+                    target="_blank"
+                    data-i18n-key="nav_ecology_memes"
+                  >
+                    文化
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#ecosystem-2" data-i18n-key="nav_ecology_anime">
                     动漫
                   </a>
-                </li>
+                </li> */}
                 <li>
-                  <a href="#ecosystem-2" data-i18n-key="nav_ecology_concerts">
+                  <a
+                    data-i18n-key="nav_ecology_concerts"
+                    onClick={() => {
+                      const pack = I18N[lang] || I18N.zh;
+                      setToastMessage(pack.coming_soon);
+                    }}
+                  >
                     音乐会
                   </a>
+                  {/* <button
+                    type="button"
+                    data-i18n-key="nav_ecology_concerts"
+                    onClick={() => {
+                      const pack = I18N[lang] || I18N.zh;
+                      setToastMessage(pack.coming_soon);
+                    }}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "inherit",
+                      font: "inherit",
+                      padding: 0,
+                      cursor: "pointer",
+                      fontSize: 22,
+                    }}
+                  >
+                    音乐会
+                  </button> */}
                 </li>
               </ul>
             </li>
@@ -479,6 +533,7 @@ export default function Home() {
                 <li>
                   <a
                     href="https://x.com/hajimi_fund"
+                    target="_blank"
                     data-i18n-key="nav_foundation_charity"
                   >
                     慈善
@@ -606,6 +661,24 @@ export default function Home() {
             >
               社区
             </a>
+
+            <a
+              className="nav-drawer-item"
+              href="https://t.me/BNB_Hajimiiii"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              哈基米生态-文化
+            </a>
+
+            <a
+              className="nav-drawer-item"
+              href="https://t.me/BNB_Hajimiiii"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              哈基米生态-音乐会
+            </a>
           </nav>
         </div>
 
@@ -663,7 +736,30 @@ export default function Home() {
             </div>
             <div className="heyue-right">
               <div className="heyue-right-code">
-                <span className="heyue-contract">
+                <span
+                  className="heyue-contract"
+                  onClick={async () => {
+                    const text = "0x82ec31d69b3c289e541b50e30681fd1acad24444";
+                    const pack = I18N[lang] || I18N.zh;
+                    try {
+                      if (navigator.clipboard?.writeText) {
+                        await navigator.clipboard.writeText(text);
+                      } else {
+                        const textarea = document.createElement("textarea");
+                        textarea.value = text;
+                        textarea.style.position = "fixed";
+                        textarea.style.opacity = "0";
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand("copy");
+                        document.body.removeChild(textarea);
+                      }
+                      setToastMessage(pack.copy_success);
+                    } catch (e) {
+                      setToastMessage(pack.copy_fail);
+                    }
+                  }}
+                >
                   0x82ec31d69b3c289e541b50e30681fd1acad24444
                 </span>
               </div>
