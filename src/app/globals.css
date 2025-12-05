@@ -50,8 +50,13 @@ body {
     #f0f0f0 100%
   );
 }
-span,
-p,
-div {
-  font-family: ZiyouFanghua !important;
+
+.font-ziyou {
+  font-family: ZiyouFanghua, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.font-fangyuanti {
+  font-family: fangyuanti, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 }
