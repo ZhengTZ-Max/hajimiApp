@@ -26,11 +26,11 @@ const I18N = {
     stat_mcap: "市值",
     stat_liq: "流动性",
     stat_chg4h: "4H涨跌幅",
-    history_title: "路线图",
+    history_title: "发展历程",
     history_step1:
       "<p>2025.10.07</p>\n                        <p>哈基米作为中文MEME登录Web3舞台</p>\n                        <p>哈基米上线BNB CHAIN链</p>\n                        <p>哈基米成为24H交易量达100M</p>\n                        <p>哈基米10.11日市值突破95M</p>",
     history_step2:
-      "<p>2025.10.13</p>\n                        <p>Binance Alpha上线</p>\n                        <p>成为全球第二个上线Binance Alpha的中文模因币，同时期社区启动贡献者计划与社区文化矩阵计划。</p>",
+      "<p>2025.10.13</p>\n                        <p>Binance Alpha上线</p>\n                        <p>哈基米获得币安生态加持成功上线币安Alpha，上线仅四天持币人数突破13000人。</p>",
     history_step3:
       "<p>2025.11.15</p>\n                        <p>社区发展</p>\n                        <p>哈基米官方推特关注突破5000人</p>\n                        <p>哈基米频道关注突破7000人</p>\n                        <p>哈基米社区周边活动派送，举办哈基米文化创作者大赛</p>\n                        <p>哈基米基金会成立，同时期开启第一期慈善计划</p>",
     culture_panel:
@@ -48,6 +48,7 @@ const I18N = {
     coming_soon: "正在建立，敬请期待...",
     dex_not_listed: "未收录",
     dex_fetch_fail: "获取失败",
+    culture_website:'@哈基米文化网站'
   },
   en: {
     nav_overview: "Overview",
@@ -75,7 +76,7 @@ const I18N = {
     history_step1:
       "<p>2025.10.07</p>\n                        <p>Hajimi, as a Chinese meme, steps onto the Web3 stage</p>\n                        <p>Hajimi launches on BNB Chain</p>\n                        <p>Hajimi reaches a 24H trading volume of 100M</p>\n                        <p>On Oct 11, Hajimi’s market cap breaks through 95M</p>",
     history_step2:
-      "<p>2025.10.13</p>\n                        <p>Binance Alpha listing</p>\n                        <p>Becomes the second Chinese meme coin globally to list on Binance Alpha, while the community launches the contributor program and cultural matrix initiative.</p>",
+      "<p>2025.10.13</p>\n                        <p>Binance Alpha listing</p>\n                        <p>Hakimi has successfully launched on Binance Alpha with the support of the Binance ecosystem, achieving over 13,000 holders within just four days of its launch.</p>",
     history_step3:
       "<p>2025.11.15</p>\n                        <p>Community growth</p>\n                        <p>Hajimi’s official Twitter surpasses 5,000 followers</p>\n                        <p>The Hajimi channel exceeds 7,000 followers</p>\n                        <p>Hajimi community launches merch giveaways and a cultural creator contest</p>\n                        <p>The Hajimi Foundation is established and kicks off its first charity program</p>",
     culture_panel:
@@ -96,6 +97,8 @@ const I18N = {
     coming_soon: "In progress, stay tuned...",
     dex_not_listed: "Not listed",
     dex_fetch_fail: "Fetch failed",
+    culture_website:'@Hakimi Culture Website'
+
   },
 };
 
@@ -927,14 +930,15 @@ export default function Home() {
                   <span>@hajimi_CTO_BNB</span>
                   <span data-i18n-key="tag_official"></span>
                 </div>
-                <div className="b2" data-i18n-key="person1_desc">
-                  一句歌词到一只猫咪再到所有猫咪和所有事物的演变-哈基米文化。
-                </div>
-                <div className="b3">
+                   <div className="b3">
                   <a target="_blank" href="https://x.com/hajimi_CTO_BNB">
                     <img src="/images/icon1_2.png" alt="X" />
                   </a>
                 </div>
+                <div className="b2" data-i18n-key="person1_desc">
+                  一句歌词到一只猫咪再到所有猫咪和所有事物的演变-哈基米文化。
+                </div>
+             
               </div>
             </div>
 
@@ -944,31 +948,33 @@ export default function Home() {
                   <span>@hajimi_fund</span>
                   <span data-i18n-key="tag_official"></span>
                 </div>
+                   <div className="b3">
+                  <a target="_blank" href="https://x.com/hajimi_fund">
+                    <img src="/images/icon1_2.png" alt="Telegram" />
+                  </a>
+                </div>
                 <div className="b2" data-i18n-key="person2_desc">
                   每一次的哈基米文化传播和慈善行动都是对世界最好的回报。
                 </div>
-                <div className="b3">
-                  <a target="_blank" href="https://t.me/BNB_Hajimiiii">
-                    <img src="/images/icon1_1.png" alt="Telegram" />
-                  </a>
-                </div>
+             
               </div>
             </div>
 
             <div className="people-label-item">
               <div className="people-label-item-content">
                 <div className="b1">
-                  <span>@哈基米文化网站</span>
+                  <span  data-i18n-key="culture_website">@哈基米文化网站</span>
                   <span data-i18n-key="tag_official"></span>
                 </div>
-                <div className="b2" data-i18n-key="person3_desc">
-                  哈基米文化网站，包含“视频，音乐，梗图"等文化内容。
-                </div>
-                <div className="b3">
+                   <div className="b3">
                   <a target="_blank" href="https://hajimi-theta.vercel.app/">
                     <img src="/images/icon3_1.png" alt="Telegram" />
                   </a>
                 </div>
+                <div className="b2" data-i18n-key="person3_desc">
+                  哈基米文化网站，包含“视频，音乐，梗图"等文化内容。
+                </div>
+             
               </div>
             </div>
           </div>
